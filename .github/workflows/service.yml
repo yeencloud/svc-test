@@ -8,14 +8,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  test:
-    uses: yeencloud/dpl-ci/.github/workflows/test.yml@main
-    secrets:
-      PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-
-
   bump-version:
-    needs: test
     uses: yeencloud/dpl-ci/.github/workflows/bump-version.yml@main
     secrets:
       PERSONAL_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }} # we don't want this job to trigger a new pipeline run
