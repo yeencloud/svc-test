@@ -18,3 +18,9 @@ jobs:
     uses: yeencloud/dpl-ci/.github/workflows/package.yml@main
     secrets:
       PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+
+  create-release:
+    needs: build-and-publish
+    uses: yeencloud/dpl-ci/.github/workflows/create-release.yml@main
+    secrets:
+      PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
