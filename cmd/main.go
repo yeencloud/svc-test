@@ -11,7 +11,14 @@ import (
 )
 
 func main() {
-	baseservice.Run("base-service", baseservice.Options{
+	envVars := os.Environ()
+
+	// Iterate over each environment variable and print it.
+	for _, env := range envVars {
+		fmt.Println(env)
+	}
+	
+	baseservice.Run("test-do-not-deploy", baseservice.Options{
 		UseDatabase: true,
 		UseEvents:   true,
 	}, func(ctx context.Context, svc *baseservice.BaseService) error {
